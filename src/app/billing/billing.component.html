@@ -1,0 +1,42 @@
+<div class="billing-container">
+    <h2>Create New Bill</h2>
+    <label>Customer ID:</label>
+    <input type="number" [(ngModel)]="customerId">
+  
+    <!-- <label>Product IDs:</label>
+     <input type="text" (change)="updateProductIds(($event.target as HTMLInputElement).value)"> -->
+   
+    <button (click)="generateBill()">Generate Bill</button>
+  
+    <div *ngIf="generatedBill">
+      <h3>Generated Bill</h3>
+      <pre>{{ generatedBill | json }}</pre>
+    </div>
+  
+    <hr>
+  
+    <h2>Get Bills by Customer ID</h2>
+    <button (click)="getBillsByCustomerId()">Fetch Bills</button>
+  
+    <div *ngIf="customerBills.length">
+      <h3>Customer Bills</h3>
+      <ul>
+        <li *ngFor="let bill of customerBills">
+          {{ bill | json }}
+        </li>
+      </ul>
+    </div>
+  
+    <hr>
+  
+    <h2>Get Bill by Bill Number</h2>
+    <label>Bill No:</label>
+    <input type="number" [(ngModel)]="billNo">
+    <button (click)="getBillByBillNo()">Search</button>
+  
+    <div *ngIf="searchedBill">
+      <h3>Bill Details</h3>
+      <pre>{{ searchedBill | json }}</pre>
+    </div>
+  </div>
+  

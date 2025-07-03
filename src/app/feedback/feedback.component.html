@@ -1,0 +1,41 @@
+<div class="feedback-container">
+  <h2>Submit Feedback</h2>
+  <form (ngSubmit)="submitFeedback()" #feedbackForm="ngForm">
+    <label for="feedbackId">Feedback ID:</label>
+    <input type="number" id="feedbackId" [(ngModel)]="feedback.feedbackId" name="feedbackId" required />
+
+    <label for="customerId">Customer ID:</label>
+    <input type="number" id="customerId" [(ngModel)]="feedback.customerId" name="customerId" required />
+
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" [(ngModel)]="feedback.customerName" name="customerName" required />
+
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" [(ngModel)]="feedback.productName" name="productName" required />
+
+    <label for="feedback">Feedback:</label>
+    <textarea id="feedback" [(ngModel)]="feedback.feedback" name="feedback" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="submittedFeedback" class="submitted">
+    <h3>Feedback Submitted:</h3>
+    <pre>{{ submittedFeedback | json }}</pre>
+  </div>
+
+  <hr />
+
+  <h2>Get Feedbacks by Customer ID</h2>
+  <input type="number" [(ngModel)]="customerIdToSearch" placeholder="Enter Customer ID" />
+  <button (click)="getFeedbacksByCustomer()">Get Feedbacks</button>
+
+  <div *ngIf="feedbackList.length > 0">
+    <h3>Feedbacks:</h3>
+    <ul>
+      <li *ngFor="let fb of feedbackList">
+        <strong>{{ fb.customerName }}</strong> on <em>{{ fb.productName }}</em>: "{{ fb.feedback }}"
+      </li>
+    </ul>
+  </div>
+</div>

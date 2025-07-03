@@ -1,0 +1,68 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Edit Customer' : 'Add Customer' }}</h2>
+
+  <form (ngSubmit)="isEditMode ? updateCustomer() : addCustomer()" #customerForm="ngForm">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" [(ngModel)]="selectedCustomer.firstName" name="firstName" required />
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" [(ngModel)]="selectedCustomer.lastName" name="lastName" required />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="selectedCustomer.emailId" name="emailId" required />
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="text" [(ngModel)]="selectedCustomer.phoneNo" name="phoneNo" required />
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="selectedCustomer.password" name="password" required />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
+      <button type="button" (click)="cancelEdit()" *ngIf="isEditMode">Cancel</button>
+    </div>
+  </form>
+
+  <hr />
+
+  <h3>Customer List</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.customerId }}</td>
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.emailId }}</td>
+        <td>{{ customer.phoneNo }}</td>
+        <td>
+          <button (click)="editCustomer(customer)">Edit</button>
+          <button (click)="deleteCustomer(customer.customerId)">Delete</button>
+
+          <!-- <input #vendorIdInput type="number" placeholder="Enter Vendor ID" />
+<button (click)="loadProductsByVendor(+vendorIdInput.value)">Load Products</button> -->
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

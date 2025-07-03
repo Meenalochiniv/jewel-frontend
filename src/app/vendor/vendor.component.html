@@ -1,0 +1,46 @@
+
+<div class="container">
+    <h2>Vendor Management</h2>
+  
+    <form [formGroup]="vendorForm">
+      <label>ID:</label>
+      <input formControlName="id" type="number" /><br />
+  
+      <label>Name:</label>
+      <input formControlName="name" type="text" /><br />
+  
+      <label>mailId:</label>
+      <input formControlName="mailId" type="mailId" /><br />
+  
+      <label>phoneNo:</label>
+      <input formControlName="phoneNo" type="text" /><br />
+
+      <label>Password:</label>
+      <input formControlName="password" type="text" /><br />
+  
+      <button (click)="addVendor()">Add Vendor</button>
+      <button (click)="updateVendor()">Update Vendor</button>
+      <button (click)="deleteVendor()">Delete Vendor</button>
+    </form>
+  
+    <hr />
+  
+    <div>
+      <label>Fetch Vendor by ID:</label>
+      <input [(ngModel)]="vendorIdToFetch" type="number" />
+      <button (click)="getVendor()">Get Vendor</button>
+    </div>
+  
+    <div *ngIf="vendor">
+      <h3>Vendor Details</h3>
+      <p><strong>ID:</strong> {{ vendor.id }}</p>
+      <p><strong>Name:</strong> {{ vendor.name }}</p>
+      <p><strong>mailId:</strong> {{ vendor.mailId }}</p>
+      <p><strong>PhoneNo:</strong> {{ vendor.phoneNo }}</p>
+      <p><strong>Password:</strong> {{ vendor.password }}</p>
+
+    </div>
+  
+    <p style="color: green">{{ message }}</p>
+  </div>
+  

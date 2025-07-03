@@ -1,0 +1,74 @@
+.billing-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .billing-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  .billing-container label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .billing-container input[type="number"],
+  .billing-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  
+  .billing-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .billing-container button:hover {
+    background-color: #005fa3;
+  }
+  
+  .billing-container pre {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  
+  .billing-container ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .billing-container li {
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  

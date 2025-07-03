@@ -1,0 +1,39 @@
+.home-container {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero-section {
+  /* background-image: url('/assets/images/jewellery-bg.jpg'); */
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+}
+
+.shop-now-btn {
+  margin-top: 20px;
+  background-color: #d4af37;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.about-section {
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}

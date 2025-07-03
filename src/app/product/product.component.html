@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Product Management</h2>
+
+  <form [formGroup]="productForm">
+    <label>Product ID:</label>
+    <input formControlName="productId" type="number" /><br />
+
+    <label>Material:</label>
+    <input formControlName="productMaterial" type="text" /><br />
+
+    <label>Weight:</label>
+    <input formControlName="productWeight" type="number" /><br />
+
+    <label>totalcost:</label>
+    <input formControlName="totalcost" type="number" /><br />
+
+    <label>Quantity:</label>
+    <input formControlName="productQuantity" type="number" /><br />
+
+    <label>Image URL:</label>
+    <input formControlName="imageUrl" type="text" /><br />
+
+
+    <label>Vendor ID:</label>
+    <input formControlName="vendorId" type="number" /><br />
+
+    <button (click)="addProduct()">Add Product</button>
+    <button (click)="updateProduct()">Update Product</button>
+    <button (click)="deleteProduct()">Delete Product</button>
+  </form>
+
+  <hr />
+
+  <div>
+    <label>Enter Vendor ID to View Products:</label>
+    <input [(ngModel)]="vendorId" type="number" />
+    <button (click)="getProductsByVendor()">Get Products</button>
+  </div>
+
+  <div *ngIf="products.length > 0">
+    <h3>Products List</h3>
+    <ul>
+      <li *ngFor="let product of products">
+        ID: {{ product.productId }},
+        Material: {{ product.productMaterial }},
+        Weight: {{ product.productWeight }},
+        totalcost: {{ product.totalcost }},
+        Quantity: {{ product.productQuantity }},
+        <br />
+<img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Product Image" width="100" />
+
+      </li>
+    </ul>
+  </div>
+
+  <p style="color: green">{{ message }}</p>
+</div>
