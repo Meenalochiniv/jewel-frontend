@@ -36,16 +36,5 @@ export class FeedbackComponent {
     });
   }
 
-  // Get feedbacks by customer ID
-  getFeedbacksByCustomer(): void {
-    this.feedbackService.getFeedbackByCustomerId(this.customerIdToSearch).subscribe({
-      next: (data) => {
-        this.feedbackList = data;
-        console.log('Feedbacks retrieved:', data);
-      },
-      error: (err) => {
-        console.error('Error fetching feedbacks:', err);
-      }
-    });
-  }
 }
+

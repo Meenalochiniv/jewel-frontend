@@ -3,7 +3,7 @@
         productId?: number;
         productMaterial: string;
         productWeight: number;
-        totalcost: number;
+        producttotalcost: number;
         productQuantity: number;
         vendorId: number;
         imageUrl: string; 

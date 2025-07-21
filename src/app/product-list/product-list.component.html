@@ -1,0 +1,25 @@
+
+
+  <div *ngIf="products.length > 0">
+    <h3>Products List</h3>
+    <div class="product-grid">
+      <div class="product-card" *ngFor="let product of products">
+        <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Product Image" />
+        <div class="product-info">
+          <p><strong>ID:</strong> {{ product.productId }}</p>
+          <p><strong>Material:</strong> {{ product.productMaterial }}</p>
+          <p><strong>Weight:</strong> {{ product.productWeight }}g</p>
+          <p><strong>Total Cost:</strong> ₹{{ product.producttotalcost }}</p>
+          <p><strong>Quantity:</strong> {{ product.productQuantity }}</p>
+          <p><strong>Vendor ID:</strong> {{ product.vendorId }}</p>
+          <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="color: green">{{ message }}</p>
+
+
+
+

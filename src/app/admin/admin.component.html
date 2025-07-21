@@ -1,0 +1,27 @@
+
+<div class="admin-container">
+    <h2>Admin Management</h2>
+  
+    <div class="form-group">
+      <input [(ngModel)]="newAdmin.username" placeholder="username" />
+      <input [(ngModel)]="newAdmin.email" placeholder="Email" />
+      <button (click)="addAdmin()">Add Admin</button>
+    </div>
+  
+    <ul class="admin-list">
+      <li *ngFor="let admin of admins">
+        <span>{{ admin.username }} ({{ admin.email }})</span>
+        <button (click)="editAdmin(admin)">Edit</button>
+        <button (click)="deleteAdmin(admin.adminId!)">Delete</button>
+      </li>
+    </ul>
+  
+    <div *ngIf="selectedAdmin" class="edit-form">
+      <h3>Edit Admin</h3>
+      <input [(ngModel)]="selectedAdmin.username" placeholder="username" />
+      <input [(ngModel)]="selectedAdmin.email" placeholder="Email" />
+      <button (click)="updateAdmin()">Update</button>
+      <button (click)="selectedAdmin = null">Cancel</button>
+    </div>
+  </div>
+  

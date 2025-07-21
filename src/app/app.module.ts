@@ -11,6 +11,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AdminComponent } from './admin/admin.component';
+import { SignComponent } from './sign/sign.component';
+import { AdmiComponent } from './admin-dashboard/admi.component';
+import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { FeedbackListComponent } from './feedback-list/feedback-list.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +29,13 @@ import { CustomerComponent } from './customer/customer.component';
     ProductComponent,
     VendorComponent,
     CustomerComponent,
+    AdminComponent,
+    SignComponent,
+    AdmiComponent,
+    VendorDashboardComponent,
+    ProductListComponent,
+    FeedbackListComponent,
+    CheckoutComponent,
     
     
   ],

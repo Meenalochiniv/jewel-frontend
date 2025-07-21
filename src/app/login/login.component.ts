@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,26 +8,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 
-export class LoginComponent implements OnInit {
-  backgroundUrl: string = 'https://th.bing.com/th/id/R.2436bfd57f8da9d3352be6d9c69f7d0d?rik=9ZCsDkOmNhWhyQ&riu=http%3a%2f%2fwallpaperheart.com%2fwp-content%2fuploads%2f2018%2f04%2fbest-scenery-wallpaper-scenery-images.jpg&ehk=QhEgBXlBIdu4NBBKeTvxOQncAMHrLokkC8ustgaeB9c%3d&risl=&pid=ImgRaw&r=0';
-  loginForm!: FormGroup ;
+export class LoginComponent {
+  username: string = '';
+  password: string = '';
+  role: string = 'admin'; 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
-  }
+  onLogin() {
+   
+    if (this.username && this.password) {
+      console.log(`Logged in as ${this.role}`);
+      this.router.navigate([`/${this.role}`]);
 
-  onSubmit(): void {
-    if (this.loginForm.valid) {
-      const loginData = this.loginForm.value;
-      console.log('Login successful with', loginData);
-      
+    } else {
+      alert('Please enter valid credentials.');
     }
   }
-
-
 }

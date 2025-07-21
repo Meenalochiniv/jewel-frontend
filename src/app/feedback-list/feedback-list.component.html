@@ -1,0 +1,18 @@
+
+  <div class="feedback-container">
+    <h2>Get Feedbacks by Customer ID</h2>
+    <div class="feedback-form">
+      <input type="number" [(ngModel)]="customerIdToSearch" placeholder="Enter Customer ID" />
+      <button (click)="getFeedbacksByCustomer()">Get Feedbacks</button>
+    </div>
+  
+    <div *ngIf="feedbackList.length > 0">
+      <h3>Feedbacks:</h3>
+      <ul>
+        <li *ngFor="let fb of feedbackList">
+          <strong>{{ fb.customerName }}</strong> on <em>{{ fb.productName }}</em>: "{{ fb.feedback }}"
+        </li>
+      </ul>
+    </div>
+  </div>
+  

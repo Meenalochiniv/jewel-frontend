@@ -1,0 +1,41 @@
+
+<!-- <h2>Checkout</h2>
+<div *ngIf="cartItems.length > 0; else emptyCart">
+  <div *ngFor="let item of cartItems" class="checkout-item">
+    <p><strong>ID:</strong> {{ item.productId }}</p>
+    <p><strong>Material:</strong> {{ item.productMaterial }}</p>
+    <p><strong>Cost:</strong> ₹{{ item.producttotalcost }}</p>
+    <hr />
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template> -->
+
+<h2>Checkout</h2>
+<div *ngIf="cartItems.length > 0; else emptyCart">
+  <div *ngFor="let item of cartItems" class="checkout-item">
+    <p><strong>ID:</strong> {{ item.productId }}</p>
+    <p><strong>Material:</strong> {{ item.productMaterial }}</p>
+    <p><strong>Cost per item:</strong> ₹{{ item.producttotalcost }}</p>
+    <p>
+      <strong>Quantity:</strong>
+      <button (click)="decreaseQuantity(item.productId)">−</button>
+      {{ item.productQuantity }}
+      <button (click)="increaseQuantity(item.productId)">+</button>
+    </p>
+    <p><strong>Subtotal:</strong> ₹{{ item.producttotalcost * item.productQuantity }}</p>
+    <hr />
+  </div>
+  <h3>Total: ₹{{ getTotalCost() }}</h3>
+  
+<div class="billing-button-container">
+  <button class="billing-button" (click)="proceedToBilling()">Proceed to Billing</button>
+</div>
+
+</div>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>

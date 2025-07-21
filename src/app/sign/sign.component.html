@@ -1,0 +1,35 @@
+
+
+   <div class="sign-container">
+    <h2>{{ isSignup ? 'Sign Up' : 'Sign In' }}</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" required />
+      </div>
+  
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+  
+      <div *ngIf="isSignup">
+        <label for="role">Role:</label>
+        <select id="role" [(ngModel)]="role" name="role">
+          <option value="USER">USER</option>
+          <option value="ADMIN">ADMIN</option>
+          <option value="VENDOR">VENDOR</option>
+        </select>
+      </div>
+  
+      <button type="submit">{{ isSignup ? 'Sign Up' : 'Sign In' }}</button>
+    </form>
+  
+    <p class="message">{{ message }}</p>
+  
+    <button (click)="toggleMode()">
+      Switch to {{ isSignup ? 'Sign In' : 'Sign Up' }}
+    </button>
+  </div>
+  

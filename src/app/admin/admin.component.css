@@ -1,0 +1,117 @@
+.admin-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-group button:hover {
+    background-color: #0056b3;
+  }
+  
+  .admin-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eef;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  .admin-list span {
+    flex-grow: 1;
+  }
+  
+  .admin-list button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-list button:first-of-type {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .admin-list button:last-of-type {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .admin-list button:hover {
+    opacity: 0.9;
+  }
+  
+  .edit-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 6px;
+  }
+  
+  .edit-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+  }
+  
+  .edit-form button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit-form button:first-of-type {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .edit-form button:last-of-type {
+    background-color: #6c757d;
+    color: white;
+  }
+  

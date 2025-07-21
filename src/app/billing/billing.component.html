@@ -1,42 +1,32 @@
-<div class="billing-container">
-    <h2>Create New Bill</h2>
-    <label>Customer ID:</label>
-    <input type="number" [(ngModel)]="customerId">
-  
-    <!-- <label>Product IDs:</label>
-     <input type="text" (change)="updateProductIds(($event.target as HTMLInputElement).value)"> -->
-   
-    <button (click)="generateBill()">Generate Bill</button>
-  
-    <div *ngIf="generatedBill">
-      <h3>Generated Bill</h3>
-      <pre>{{ generatedBill | json }}</pre>
-    </div>
-  
-    <hr>
-  
-    <h2>Get Bills by Customer ID</h2>
-    <button (click)="getBillsByCustomerId()">Fetch Bills</button>
-  
-    <div *ngIf="customerBills.length">
-      <h3>Customer Bills</h3>
-      <ul>
-        <li *ngFor="let bill of customerBills">
-          {{ bill | json }}
-        </li>
-      </ul>
-    </div>
-  
-    <hr>
-  
-    <h2>Get Bill by Bill Number</h2>
-    <label>Bill No:</label>
-    <input type="number" [(ngModel)]="billNo">
-    <button (click)="getBillByBillNo()">Search</button>
-  
-    <div *ngIf="searchedBill">
-      <h3>Bill Details</h3>
-      <pre>{{ searchedBill | json }}</pre>
-    </div>
-  </div>
-  
+
+<h2>Billing</h2>
+
+<div *ngIf="!orderPlaced">
+  <h3>Shipping Address</h3>
+  <textarea [(ngModel)]="shippingAddress" rows="3" cols="40" placeholder="Enter shipping address"></textarea>
+
+  <h3>Payment Method</h3>
+  <select [(ngModel)]="paymentMethod">
+    <option value="Card">Card</option>
+    <option value="UPI">UPI</option>
+    <option value="Cash on Delivery">Cash on Delivery</option>
+  </select>
+
+  <h3>Cart Summary</h3>
+  <ul>
+    <li *ngFor="let item of cartItems">
+      {{ item.productMaterial }} (x{{ item.productQuantity }}) - ₹{{ item.producttotalcost * item.productQuantity }}
+    </li>
+  </ul>
+
+  <p><strong>Total:</strong> ₹{{ getTotalCost() }}</p>
+
+  <button (click)="placeOrder()">Place Order</button>
+</div>
+
+<div *ngIf="orderPlaced" class="confirmation">
+  <h3>Order Placed Successfully!</h3>
+  <p><strong>Shipping Address:</strong> {{ shippingAddress }}</p>
+  <p><strong>Payment Method:</strong> {{ paymentMethod }}</p>
+  <p><strong>Total Amount:</strong> ₹{{ getTotalCost() }}</p>
+</div>

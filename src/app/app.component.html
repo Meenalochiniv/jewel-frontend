@@ -1,18 +1,60 @@
-<div class="container">
-  <nav class="navbar">
-    <ul>
-      
-      <li><a routerLink="/billing">Billing</a></li>
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/feedback">Feedback</a></li>
-      <li><a routerLink="/product">Product</a></li>
-      <li><a routerLink="/vendor">Vendor</a></li>
-      <li><a routerLink="/customer">Customer</a></li>
-      
 
+<!-- <router-outlet></router-outlet>
+</div> --> 
+
+
+<div class="container">
+
+  <!-- <nav class="navbar">
+    <ul>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/sign">Sign In</a></li>
+      <li><button (click)="logout()">Logout</button></li>
+
+    </ul>
+  </nav> -->
+
+  <nav class="navbar">
+    <ul class="nav-left">
+      <li><a routerLink="/home">Home</a></li>
+    </ul>
+    <ul class="nav-right">
+      <li><a routerLink="/sign">Sign In</a></li>
+      <li><button (click)="logout()">Logout</button></li>
     </ul>
   </nav>
   
-<router-outlet></router-outlet>
+
+
+  <aside class="sidebar">
+    <ul>
+      <li><a routerLink="/billing">Billing</a></li>
+      <li><a routerLink="/feedback">Feedback</a></li>
+      <!-- <li><a routerLink="/customer">Customer</a></li> -->
+      <li><a routerLink="/admin-dashboard">Admin-dashboard</a></li>
+      <li><a routerLink="/vendor-dashboard">Vendor-dashboard</a></li>
+      <li><a routerLink="/product-list">Product-list</a></li>
+      <li><a routerLink="/feedback-list">Feedback-list</a></li>
+      
+
+      
+    </ul>
+  </aside>
+
+  <!-- navbar.component.html -->
+<nav *ngIf="authService.isLoggedIn()">
+  <a *ngIf="authService.getRole() === 'user'" routerLink="/product-list">Products</a>
+  <a *ngIf="authService.getRole() === 'user'" routerLink="/feedback">Feedback</a>
+  <a *ngIf="authService.getRole() === 'user'" routerLink="/billing">Billing</a>
+
+  <a *ngIf="authService.getRole() === 'admin'" routerLink="/admin-dashboard">Admin Dashboard</a>
+  <a *ngIf="authService.getRole() === 'admin'" routerLink="/feedback-list">Feedback List</a>
+
+  <a *ngIf="authService.getRole() === 'vendor'" routerLink="/vendor-dashboard">Vendor Dashboard</a>
+
+</nav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
